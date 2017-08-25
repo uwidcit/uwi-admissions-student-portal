@@ -4,11 +4,16 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "serve": "ng serve",
+    "serve-firebase": "npm run build && firebase serve --only hosting,functions",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "npm run build && firebase deploy",
+    "deploy-hosting": "npm run build && firebase deploy --only hosting",
+    "deploy-functions": "firebase deploy --only functions",
+    "clean": "rm -rf dist"
   },
   "private": true,
   "dependencies": {
@@ -21,7 +26,10 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "angularfire2": "^4.0.0-rc.2",
     "core-js": "^2.4.1",
+    "firebase": "^4.2.0",
+    "normalize.css": "^7.0.0",
     "rxjs": "^5.4.1",
     "zone.js": "^0.8.14"
   },

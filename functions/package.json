@@ -1,0 +1,14 @@
+{
+  "name": "uwi-admissions-student-portal-functions",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "firebase": "^4.3.0",
+    "firebase-admin": "^5.2.1",
+    "firebase-functions": "^0.6.2"
+  }
+}
