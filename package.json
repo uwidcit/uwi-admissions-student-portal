@@ -6,14 +6,16 @@
     "ng": "ng",
     "serve": "ng serve",
     "serve-firebase": "npm run build && firebase serve --only hosting,functions",
-    "build": "ng build",
+    "build": "npm run build-hosting && npm run build-functions",
+    "build-hosting": "ng build",
+    "build-functions": "tsc -p ./src_functions/tsconfig.json && cp ./src_functions/package.json ./functions/package.json && cd functions && npm i",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "deploy": "npm run build && firebase deploy",
-    "deploy-hosting": "npm run build && firebase deploy --only hosting",
-    "deploy-functions": "firebase deploy --only functions",
-    "clean": "rm -rf dist"
+    "deploy-hosting": "npm run build-hosting && firebase deploy --only hosting",
+    "deploy-functions": "npm run build-functions && firebase deploy --only functions",
+    "clean": "rm -rf dist functions"
   },
   "private": true,
   "dependencies": {
